@@ -1,0 +1,58 @@
+$neon-blue: #00f3ff;
+$neon-pink: #ff00cc;
+
+.neon-toolbar {
+  background: radial-gradient(ellipse at center, #111 0%, #000 100%);
+  box-shadow: 0 0 20px $neon-blue, 0 0 60px $neon-blue;
+  border-bottom: 2px solid $neon-blue;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; // 👈 Alinea logo + links a la derecha
+  flex-wrap: wrap; // Para responsive
+
+  .logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.4rem;
+    color: $neon-pink;
+    text-shadow: 0 0 5px $neon-pink, 0 0 10px $neon-pink;
+    margin-right: auto; // 👈 Empuja el logo a la izquierda, en móvil se adapta
+  }
+
+  .spacer {
+    flex: 1 1 auto;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 10px;
+
+    a {
+      color: $neon-blue;
+      font-family: 'Roboto Mono', monospace;
+      font-weight: 500;
+      text-shadow: 0 0 2px $neon-blue, 0 0 5px $neon-blue;
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: white;
+        text-shadow: 0 0 10px white;
+      }
+    }
+  }
+}
+
+// Responsive: En pantallas pequeñas, los enlaces se apilan
+@media (max-width: 600px) {
+  .neon-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px;
+
+    .nav-links {
+      flex-direction: column;
+      align-items: flex-start;
+      margin-top: 10px;
+    }
+  }
+}

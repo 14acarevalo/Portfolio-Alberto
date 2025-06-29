@@ -1,0 +1,33 @@
+<!-- projects.component.html -->
+<section class="projects-section">
+  <div class="container">
+    <h2 class="neon-title">Proyectos Destacados</h2>
+    <p class="intro">
+      Aquí tienes una selección de mis proyectos más recientes.
+    </p>
+
+    <div class="projects-grid">
+      <div class="project-card" *ngFor="let project of projects">
+        <!-- Reemplazamos la imagen por un icono -->
+        <div class="project-icon">
+          <i [class]="project.icon"></i>
+        </div>
+
+        <div class="project-content">
+          <h3 class="project-title">{{ project.title }}</h3>
+          <p class="project-description">{{ project.description }}</p>
+
+          <div class="project-tech">
+            <i class="fas fa-cogs"></i> {{ project.technologies.join(' • ') }}
+          </div>
+
+          <div class="project-actions">
+            <a [href]="project.github" target="_blank" class="project-link">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

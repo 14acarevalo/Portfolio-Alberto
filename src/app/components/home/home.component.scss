@@ -1,0 +1,115 @@
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #0d0d0d;
+  color: white;
+  padding: 40px 20px;
+}
+
+.matrix-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.content {
+  z-index: 2;
+  max-width: 800px;
+  font-family: 'Orbitron', sans-serif;
+  text-shadow: 0 0 10px #00f3ff;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(0, 243, 255, 0.3);
+}
+
+h1 {
+  font-size: 4.5rem;
+  margin-bottom: 20px;
+  color: #00f3ff;
+}
+
+.subtitle {
+  font-size: 1.7rem;
+  color: #ccc;
+  margin-bottom: 30px;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.description {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #eee;
+  margin-bottom: 40px;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 30px;
+
+  a {
+    font-family: 'Roboto Mono', monospace;
+    box-shadow: 0 0 10px #00f3ff, 0 0 20px #00f3ff;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    padding: 12px 24px;
+  }
+
+  a:hover {
+    box-shadow: 0 0 20px #00f3ff, 0 0 30px #00f3ff;
+  }
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 1.6rem;
+  position: relative;
+}
+
+.social-icon {
+  color: #00f3ff;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.social-icon::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00f3ff, transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.social-icon:hover::after {
+  transform: scaleX(1);
+}
+
+/* Brillo automático opcional */
+@keyframes neon-glow {
+  0%, 100% { opacity: 0.8; filter: drop-shadow(0 0 5px #00f3ff); }
+  50% { opacity: 1; filter: drop-shadow(0 0 10px #00f3ff) brightness(1.2); }
+}
+
+.social-icon.auto-glow:hover {
+  animation: neon-glow 1.5s infinite alternate;
+}

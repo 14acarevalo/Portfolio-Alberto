@@ -1,0 +1,232 @@
+$neon-blue: #00f3ff;
+$neon-pink: #ff00cc;
+
+.about-section {
+  padding: 80px 20px;
+  background-color: #0d0d0d;
+  color: white;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.neon-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.5rem;
+  color: $neon-pink;
+  text-shadow: 0 0 10px $neon-pink, 0 0 20px $neon-pink;
+  margin-bottom: 20px;
+}
+
+.intro {
+  font-size: 1.1rem;
+  color: #ccc;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.skillsAlberto {
+  font-size: 1.1rem;
+  color: #ccc;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.skills-title,
+.tools-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.7rem;
+  color: $neon-blue;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  list-style: none;
+  padding: 0;
+}
+
+.skill-tag {
+  background: rgba(0, 243, 255, 0.1);
+  border: 1px solid $neon-blue;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: all 0.3s ease-in-out;
+  cursor: default;
+
+  &:hover {
+    background: $neon-blue;
+    color: black;
+    transform: scale(1.05);
+  }
+}
+
+.tools-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.tool-item {
+  background: #1a1a1a;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border-left: 3px solid $neon-blue;
+  transition: all 0.3s ease;
+
+  i {
+    color: $neon-blue;
+    margin-right: 8px;
+  }
+
+  &:hover {
+    background: #222;
+    transform: translateX(5px);
+  }
+}
+
+.glitch {
+  position: relative;
+  font-size: 2.5rem;
+  color: #00f3ff;
+  text-shadow: 0 0 10px #00f3ff, 0 0 20px #00f3ff;
+  animation: glitch 2s infinite;
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  10% { transform: translate(-2px, -2px); }
+  20% { transform: translate(2px, 2px); }
+  30% { transform: translate(-2px, 2px); }
+  40% { transform: translate(2px, -2px); }
+  50% { transform: translate(0); }
+  60%, 100% { transform: translate(0); }
+}
+
+.profile-image {
+  width: 120px; // Más pequeña
+  height: 120px;
+  border-radius: 50%; // Redondeada
+  border: 2px solid #00f3ff;
+  box-shadow: 0 0 10px #00f3ff, 0 0 20px #00f3ff;
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 0 auto 30px auto;
+  display: block;
+}
+
+.profile-image:hover {
+  transform: scale(1.05) rotate(2deg);
+  box-shadow: 0 0 15px #00f3ff, 0 0 30px #00f3ff;
+}
+
+.education-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 40px;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.education-category {
+  flex: 1;
+}
+
+.education-category-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.2rem;
+  color: $neon-pink;
+  text-shadow: 0 0 5px $neon-pink, 0 0 10px $neon-pink;
+  margin-bottom: 15px;
+  border-left: 3px solid $neon-blue;
+  padding-left: 10px;
+}
+
+.education-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.education-item {
+  background: rgba(0, 243, 255, 0.05);
+  border: 1px solid $neon-blue;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    background: $neon-blue;
+    color: black;
+    transform: translateY(-3px);
+    box-shadow: 0 0 15px $neon-blue;
+
+    .education-degree {
+      color: black;
+    }
+
+    .education-institution,
+    .education-duration {
+      color: #000;
+    }
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba($neon-blue, 0.1) 0%, transparent 70%);
+    animation: shine 5s linear infinite;
+    z-index: 0;
+  }
+}
+
+.education-degree {
+  font-weight: bold;
+  font-size: 1rem;
+  color: white;
+  position: relative;
+  z-index: 1;
+}
+
+.education-institution {
+  font-size: 0.9rem;
+  color: $neon-blue;
+  font-style: italic;
+  position: relative;
+  z-index: 1;
+}
+
+.education-duration {
+  font-size: 0.85rem;
+  color: #aaa;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes shine {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

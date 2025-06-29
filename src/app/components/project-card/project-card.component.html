@@ -1,0 +1,15 @@
+<!-- project-card.component.html -->
+<mat-card class="project-card">
+  <mat-card-header>
+    <mat-card-title>{{ project.title }}</mat-card-title>
+  </mat-card-header>
+  <img mat-card-image [src]="project.image" [alt]="project.title">
+  <mat-card-content>
+    <p>{{ project.description }}</p>
+    <p><strong>Tecnologías:</strong> {{ project.technologies }}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <a mat-button [href]="project.github" target="_blank">GitHub</a>
+    <a mat-button [href]="project.demo" target="_blank">Demo</a>
+  </mat-card-actions>
+</mat-card>
