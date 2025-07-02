@@ -25,7 +25,7 @@ export class ProjectsComponent {
       description: 'Mi portafolio hecho con Angular y efectos visuales futuristas para que me conozcas.',
       technologies: ['Angular', 'TypeScript', 'SCSS'],
       icon: 'fas fa-laptop-code', // Icono de proyecto
-      github: 'https://github.com/14acarevalo/portfolio-alberto '
+      github: 'https://github.com/14acarevalo/Portfolio-Alberto'
     },
     {
       title: 'App de Gestión de reservas "HomeCircle"',
