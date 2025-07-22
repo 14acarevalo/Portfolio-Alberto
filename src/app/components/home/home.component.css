@@ -1,5 +1,5 @@
 .hero {
-  height: 100vh;
+  min-height: 100vh; /* Cambié de height a min-height por compatibilidad móvil */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -8,7 +8,10 @@
   background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
   color: white;
   position: relative;
+  padding: 2rem; /* Espaciado interno en móviles */
+  box-sizing: border-box;
 
+  /* Contenedor del glitch (si lo usas) */
   .glitch-container {
     overflow: hidden;
     position: relative;
@@ -17,29 +20,71 @@
 
   h1 {
     font-family: 'Orbitron', sans-serif;
-    font-size: 4rem;
-    margin-bottom: 20px;
+    font-size: 3.5rem; /* Valor base para desktop */
+    margin-bottom: 1rem;
     color: #00f3ff;
     text-shadow: 0 0 10px #00f3ff, 0 0 20px #00f3ff;
+    line-height: 1.2;
+
+    /* Responsive: reduce el tamaño en pantallas pequeñas */
+    @media (max-width: 768px) {
+      font-size: 2.5rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 2rem;
+    }
   }
 
   .subtitle {
     font-family: 'Roboto Mono', monospace;
     font-size: 1.2rem;
     color: #ccc;
-    margin-bottom: 40px;
+    margin-bottom: 2rem;
+
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 0.9rem;
+    }
   }
 
-  .cta-button {
+  .cta-buttons { /* Noté que tienes clase cta-buttons, no cta-button */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .cta-button,
+  a[mat-stroked-button] { /* Aplica a tus botones Angular Material */
     font-family: 'Roboto Mono', monospace;
     background-color: #ff00cc !important;
     box-shadow: 0 0 10px #ff00cc, 0 0 20px #ff00cc;
     color: white !important;
     border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
     transition: all 0.3s ease;
 
     &:hover {
       box-shadow: 0 0 20px #ff00cc, 0 0 30px #ff00cc;
+    }
+  }
+
+  /* Responsive: botones en columna en móviles */
+  @media (min-width: 768px) {
+    .cta-buttons {
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    .cta-button,
+    a[mat-stroked-button] {
+      font-size: 1rem;
     }
   }
 }
