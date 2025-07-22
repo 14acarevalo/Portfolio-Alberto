@@ -1,13 +1,28 @@
 <mat-toolbar color="primary" class="neon-toolbar">
-  <!-- Logo -->
   <span class="logo">14acarevalo 👾</span>
 
-  <!-- Botón hamburguesa -->
-  <button class="menu-toggle" (click)="toggleMenu()" aria-label="Toggle menú">
-    <i class="fas" [ngClass]="isMenuOpen ? 'fa-times' : 'fa-bars'"></i>
+  <!-- Spacer -->
+  <span class="spacer"></span>
+
+  <!-- Botón hamburguesa (solo visible en móvil) -->
+  <button
+    class="menu-toggle"
+    (click)="toggleMenu()"
+    aria-label="Abrir menú de navegación"
+    *ngIf="!isMenuOpen">
+    <i class="fas fa-bars"></i>
   </button>
 
-  <!-- Enlaces -->
+  <!-- Botón cerrar (solo visible cuando está abierto) -->
+  <button
+    class="menu-toggle close"
+    (click)="toggleMenu()"
+    aria-label="Cerrar menú de navegación"
+    *ngIf="isMenuOpen">
+    <i class="fas fa-times"></i>
+  </button>
+
+  <!-- Enlaces de navegación -->
   <nav class="nav-links" [class.open]="isMenuOpen">
     <a mat-button routerLink="/" (click)="closeMenu()">Inicio</a>
     <a mat-button routerLink="/about" (click)="closeMenu()">Sobre Mí</a>

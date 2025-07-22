@@ -1,4 +1,4 @@
-// Colores
+// Variables
 $neon-blue: #00f3ff;
 $neon-pink: #ff00cc;
 $bg-dark: #111;
@@ -8,6 +8,7 @@ $text-color: white;
   background: radial-gradient(ellipse at center, $bg-dark 0%, #000 100%);
   box-shadow: 0 0 20px $neon-blue, 0 0 60px $neon-blue;
   border-bottom: 2px solid $neon-blue;
+  transition: all 0.3s ease-in-out;
   display: flex;
   align-items: center;
   padding: 0 1rem;
@@ -22,19 +23,40 @@ $text-color: white;
     color: $neon-pink;
     text-shadow: 0 0 5px $neon-pink, 0 0 10px $neon-pink;
     white-space: nowrap;
+    margin-right: 1rem;
+
+    @media (max-width: 480px) {
+      font-size: 1.2rem;
+    }
   }
 
+  .spacer {
+    flex: 1 1 auto;
+  }
+
+  // Botón de menú (hamburguesa)
   .menu-toggle {
+    display: none;
     background: none;
     border: none;
     color: $neon-blue;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     cursor: pointer;
-    display: none;
-    transition: color 0.3s ease;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
 
     &:hover {
       color: white;
+      box-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+    }
+
+    &.close {
+      color: #ff3366;
+
+      &:hover {
+        color: #ff6699;
+      }
     }
   }
 
@@ -62,46 +84,55 @@ $text-color: white;
   }
 }
 
-// Responsive
+// Responsive: Pantallas pequeñas (móvil)
 @media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-    margin-left: auto;
-  }
-
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.95);
-    padding: 1rem 2rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    border-bottom: 1px solid $neon-blue;
-
-    &.open {
-      display: flex;
+  .neon-toolbar {
+    .menu-toggle {
+      display: block;
     }
 
-    a {
-      padding: 1rem 0;
-      font-size: 1.1rem;
+    .nav-links {
+      display: none;
+
+      &.open {
+        display: flex;
+        flex-direction: column;
+        background: rgba(0, 0, 0, 0.95);
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 1rem 2rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        border-bottom: 1px solid $neon-blue;
+        z-index: 999;
+
+        a {
+          padding: 1rem 0;
+          font-size: 1.1rem;
+          justify-content: flex-start;
+
+          &:hover {
+            background: transparent;
+            color: white;
+            text-shadow: 0 0 10px white;
+          }
+        }
+      }
     }
   }
-}
 
-@media (max-width: 480px) {
-  .logo {
-    font-size: 1.2rem;
-  }
+  @media (max-width: 480px) {
+    .neon-toolbar {
+      padding: 0 0.5rem;
+    }
 
-  .nav-links {
-    padding: 1rem 1.5rem;
+    .nav-links {
+      padding: 1rem 1.5rem;
 
-    a {
-      font-size: 1rem;
+      a {
+        font-size: 1rem;
+      }
     }
   }
 }
