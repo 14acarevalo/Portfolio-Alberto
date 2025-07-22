@@ -1,4 +1,4 @@
-// Variables
+// Colores
 $neon-blue: #00f3ff;
 $neon-pink: #ff00cc;
 $bg-dark: #111;
@@ -8,7 +8,6 @@ $text-color: white;
   background: radial-gradient(ellipse at center, $bg-dark 0%, #000 100%);
   box-shadow: 0 0 20px $neon-blue, 0 0 60px $neon-blue;
   border-bottom: 2px solid $neon-blue;
-  transition: all 0.3s ease-in-out;
   display: flex;
   align-items: center;
   padding: 0 1rem;
@@ -23,40 +22,19 @@ $text-color: white;
     color: $neon-pink;
     text-shadow: 0 0 5px $neon-pink, 0 0 10px $neon-pink;
     white-space: nowrap;
-    margin-right: 1rem;
-
-    @media (max-width: 480px) {
-      font-size: 1.2rem;
-    }
   }
 
-  .spacer {
-    flex: 1 1 auto;
-  }
-
-  // Botón de menú (hamburguesa)
   .menu-toggle {
-    display: none;
     background: none;
     border: none;
     color: $neon-blue;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     cursor: pointer;
-    padding: 8px 12px;
-    border-radius: 6px;
-    transition: all 0.3s ease;
+    display: none;
+    transition: color 0.3s ease;
 
     &:hover {
       color: white;
-      box-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
-    }
-
-    &.close {
-      color: #ff3366;
-
-      &:hover {
-        color: #ff6699;
-      }
     }
   }
 
@@ -84,62 +62,46 @@ $text-color: white;
   }
 }
 
-// Responsive: Pantallas pequeñas (móvil)
+// Responsive
 @media (max-width: 768px) {
-  .neon-toolbar {
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 0 1rem;
-    height: 60px;
-    align-items: center;
-  }
-
   .menu-toggle {
-    display: block; // Mostrar solo en móvil
+    display: block;
+    margin-left: auto;
   }
 
   .nav-links {
-    display: none; // Oculto por defecto
+    display: none;
     flex-direction: column;
-    background: rgba(0, 0, 0, 0.95);
     position: absolute;
     top: 60px;
     left: 0;
     width: 100%;
+    background: rgba(0, 0, 0, 0.95);
     padding: 1rem 2rem;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     border-bottom: 1px solid $neon-blue;
-    z-index: 999;
 
     &.open {
-      display: flex; // Mostrar solo si está abierto
+      display: flex;
     }
 
     a {
       padding: 1rem 0;
       font-size: 1.1rem;
-      justify-content: flex-start;
-
-      &:hover {
-        background: transparent;
-        color: white;
-        text-shadow: 0 0 10px white;
-      }
     }
   }
+}
 
-  // Ajuste en pantallas muy pequeñas
-  @media (max-width: 480px) {
-    .neon-toolbar {
-      padding: 0 0.5rem;
-    }
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.2rem;
+  }
 
-    .nav-links {
-      padding: 1rem 1.5rem;
+  .nav-links {
+    padding: 1rem 1.5rem;
 
-      a {
-        font-size: 1rem;
-      }
+    a {
+      font-size: 1rem;
     }
   }
 }
