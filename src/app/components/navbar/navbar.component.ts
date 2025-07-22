@@ -1,4 +1,3 @@
-
 import { Component } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -21,10 +20,19 @@ import { CommonModule } from '@angular/common';
 })
 export class NavbarComponent {
   theme = 'light';
-isDarkMode = false;
+  isDarkMode = false;
+  isMenuOpen = false; // ← Nueva variable para controlar el menú
 
-toggleTheme() {
-  this.isDarkMode = !this.isDarkMode;
-  document.body.classList.toggle('dark-theme');
-}
+  toggleTheme() {
+    this.isDarkMode = !this.isDarkMode;
+    document.body.classList.toggle('dark-theme');
+  }
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  closeMenu() {
+    this.isMenuOpen = false;
+  }
 }

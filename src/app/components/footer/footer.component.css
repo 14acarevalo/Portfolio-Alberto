@@ -2,5 +2,28 @@
   background-color: #303030;
   color: white;
   text-align: center;
-  padding: 20px;
+  padding: 1.5rem 1rem; /* Más adaptable: 1.5rem arriba/abajo, 1rem laterales */
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.9rem;
+
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem; /* Evita que el texto pegue a los bordes en móviles */
+  }
+
+  p {
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  /* Ajuste en pantallas pequeñas */
+  @media (max-width: 480px) {
+    padding: 1rem 0.5rem;
+    font-size: 0.8rem;
+
+    p {
+      padding: 0 1rem;
+    }
+  }
 }

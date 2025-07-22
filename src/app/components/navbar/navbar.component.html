@@ -1,11 +1,32 @@
 <mat-toolbar color="primary" class="neon-toolbar">
   <span class="logo">14acarevalo 👾</span>
+
+  <!-- Spacer -->
   <span class="spacer"></span>
-  <nav class="nav-links">
-    <a mat-button routerLink="/">Inicio</a>
-    <a mat-button routerLink="/about">Sobre Mí</a>
-    <a mat-button routerLink="/projects">Proyectos</a>
-    <a mat-button routerLink="/contact">Contacto</a>
+
+  <!-- Botón hamburguesa (solo visible en móvil) -->
+  <button
+    class="menu-toggle"
+    (click)="toggleMenu()"
+    aria-label="Abrir menú de navegación"
+    *ngIf="!isMenuOpen">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <!-- Botón cerrar (solo visible cuando está abierto) -->
+  <button
+    class="menu-toggle close"
+    (click)="toggleMenu()"
+    aria-label="Cerrar menú de navegación"
+    *ngIf="isMenuOpen">
+    <i class="fas fa-times"></i>
+  </button>
+
+  <!-- Enlaces de navegación -->
+  <nav class="nav-links" [class.open]="isMenuOpen">
+    <a mat-button routerLink="/" (click)="closeMenu()">Inicio</a>
+    <a mat-button routerLink="/about" (click)="closeMenu()">Sobre Mí</a>
+    <a mat-button routerLink="/projects" (click)="closeMenu()">Proyectos</a>
+    <a mat-button routerLink="/contact" (click)="closeMenu()">Contacto</a>
   </nav>
-  
 </mat-toolbar>

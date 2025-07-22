@@ -1,14 +1,27 @@
+// Variables (si usas un archivo global, puedes moverlas)
+$neon-blue: #00f3ff;
+$text-color: #ccc;
+$bg-overlay: rgba(0, 0, 0, 0.7);
+
 .hero {
   position: relative;
-  height: 100vh;
+  min-height: 100vh; // Mejor que height: 100vh en móviles
   overflow: hidden;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   background-color: #0d0d0d;
   color: white;
-  padding: 40px 20px;
+  padding: 60px 20px;
+  box-sizing: border-box;
+
+  // Corrección para móviles con dynamic viewport (iOS)
+  @media (max-height: 500px) {
+    min-height: auto;
+    padding: 40px 20px;
+  }
 }
 
 .matrix-background {
@@ -24,25 +37,55 @@
 .content {
   z-index: 2;
   max-width: 800px;
-  font-family: 'Orbitron', sans-serif;
-  text-shadow: 0 0 10px #00f3ff;
-  background: rgba(0, 0, 0, 0.7);
+  width: 100%;
   padding: 40px;
+  margin: 0 1rem;
+  background: $bg-overlay;
   border-radius: 12px;
   box-shadow: 0 0 30px rgba(0, 243, 255, 0.3);
+  backdrop-filter: blur(5px);
+  font-family: 'Orbitron', sans-serif;
+  text-shadow: 0 0 10px $neon-blue;
+  box-sizing: border-box;
+
+  @media (max-width: 768px) {
+    padding: 30px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 20px;
+    margin: 0 0.5rem;
+  }
 }
 
 h1 {
   font-size: 4.5rem;
   margin-bottom: 20px;
-  color: #00f3ff;
+  color: $neon-blue;
+  line-height: 1.1;
+
+  @media (max-width: 768px) {
+    font-size: 3rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 2.5rem;
+  }
 }
 
 .subtitle {
   font-size: 1.7rem;
-  color: #ccc;
+  color: $text-color;
   margin-bottom: 30px;
   font-family: 'Roboto Mono', monospace;
+
+  @media (max-width: 768px) {
+    font-size: 1.4rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.2rem;
+  }
 }
 
 .description {
@@ -51,6 +94,11 @@ h1 {
   color: #eee;
   margin-bottom: 40px;
   font-family: 'Roboto Mono', monospace;
+
+  @media (max-width: 480px) {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+  }
 }
 
 .cta-buttons {
@@ -58,56 +106,90 @@ h1 {
   gap: 20px;
   justify-content: center;
   margin-bottom: 30px;
+  flex-wrap: wrap; // Permite que se apilen si no hay espacio
 
   a {
     font-family: 'Roboto Mono', monospace;
-    box-shadow: 0 0 10px #00f3ff, 0 0 20px #00f3ff;
+    box-shadow: 0 0 10px $neon-blue, 0 0 20px $neon-blue;
     transition: all 0.3s ease;
     font-size: 1.1rem;
     padding: 12px 24px;
+    text-decoration: none;
+    color: white;
+    border-radius: 6px;
+    min-width: 160px;
+
+    &:hover {
+      box-shadow: 0 0 20px $neon-blue, 0 0 30px $neon-blue;
+      transform: translateY(-2px);
+    }
   }
 
-  a:hover {
-    box-shadow: 0 0 20px #00f3ff, 0 0 30px #00f3ff;
+  // En móviles, botones en columna
+  @media (max-width: 600px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+
+    a {
+      width: 100%;
+      max-width: 280px;
+      text-align: center;
+    }
   }
 }
 
 .social-icons {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 24px;
+  margin-top: 20px;
   font-size: 1.6rem;
-  position: relative;
+
+  @media (max-width: 480px) {
+    gap: 18px;
+    font-size: 1.4rem;
+  }
 }
 
 .social-icon {
-  color: #00f3ff;
+  color: $neon-blue;
   text-decoration: none;
   position: relative;
   transition: color 0.3s ease;
+
+  &:hover {
+    color: #00ccff;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, $neon-blue, transparent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+  }
 }
 
-.social-icon::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #00f3ff, transparent);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.3s ease;
-}
-
-.social-icon:hover::after {
-  transform: scaleX(1);
-}
-
-/* Brillo automático opcional */
+// Animación de brillo automático (opcional al pasar el ratón)
 @keyframes neon-glow {
-  0%, 100% { opacity: 0.8; filter: drop-shadow(0 0 5px #00f3ff); }
-  50% { opacity: 1; filter: drop-shadow(0 0 10px #00f3ff) brightness(1.2); }
+  0%, 100% {
+    opacity: 0.8;
+    filter: drop-shadow(0 0 5px $neon-blue);
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 10px $neon-blue) brightness(1.2);
+  }
 }
 
 .social-icon.auto-glow:hover {

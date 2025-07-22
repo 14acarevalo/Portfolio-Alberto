@@ -1,25 +1,29 @@
 <section class="about-section">
+  <!-- Perfil -->
   <div class="container">
     <h2 class="neon-title">Sobre Mí</h2>
+
     <div class="profile-pic">
       <img
         src="assets/photos/alberto.jps.jpg"
-        alt="imagen de Alberto"
+        alt="Foto de Alberto"
         class="profile-image"
       />
     </div>
+
     <p class="intro">
-      Soy Alberto, desarrollador Full Stack apasionado por la tecnología y la
-      innovación. Me encanta aprender y enfrentar nuevos desafíos. Conoceme.
+      Soy Alberto, desarrollador Full Stack apasionado por la tecnología y la innovación. Me encanta aprender y enfrentar nuevos desafíos. Conóceme.
     </p>
 
-    <p class="skillsAlberto">
-      ¿Con qué tecnologías he trabajado? Aquí te muestro un resumen de mis
-      habilidades:
+    <p class="skills-intro">
+      ¿Con qué tecnologías he trabajado? Aquí te muestro un resumen de mis habilidades:
     </p>
+  </div>
 
+  <!-- HABILIDADES TÉCNICAS -->
+  <div class="container">
     <!-- FRONTEND -->
-    <h3 class="section-title"><i class="fab fa-frontend icon"></i> Frontend</h3>
+    <h3 class="section-title"><i class="fab fa-js icon"></i> Frontend</h3>
     <ul class="skills-list">
       <li *ngFor="let tech of frontend" class="skill-tag">
         <i [class]="tech.icon"></i> {{ tech.name }}
@@ -35,9 +39,7 @@
     </ul>
 
     <!-- BASES DE DATOS -->
-    <h3 class="section-title">
-      <i class="fas fa-database icon"></i> Bases de Datos
-    </h3>
+    <h3 class="section-title"><i class="fas fa-database icon"></i> Bases de Datos</h3>
     <ul class="skills-list">
       <li *ngFor="let db of databases" class="skill-tag">
         <i [class]="db.icon"></i> {{ db.name }}
@@ -45,9 +47,7 @@
     </ul>
 
     <!-- CONTROL DE VERSIONES -->
-    <h3 class="section-title">
-      <i class="fab fa-git-alt icon"></i> Control de Versiones
-    </h3>
+    <h3 class="section-title"><i class="fab fa-git-alt icon"></i> Control de Versiones</h3>
     <ul class="skills-list">
       <li *ngFor="let vcs of versionControl" class="skill-tag">
         <i [class]="vcs.icon"></i> {{ vcs.name }}
@@ -55,9 +55,7 @@
     </ul>
 
     <!-- IDEs -->
-    <h3 class="section-title">
-      <i class="fas fa-laptop-code icon"></i> Entornos de Desarrollo
-    </h3>
+    <h3 class="section-title"><i class="fas fa-laptop-code icon"></i> Entornos de Desarrollo</h3>
     <ul class="skills-list">
       <li *ngFor="let ide of ides" class="skill-tag">
         <i [class]="ide.icon"></i> {{ ide.name }}
@@ -65,13 +63,9 @@
     </ul>
   </div>
 
-  <!--Formacion-->
+  <!-- FORMACIÓN ACADÉMICA -->
   <div class="container">
-    <h3 class="section-title">
-      <i class="fas fa-graduation-cap icon"></i> Formación Académica en el mundo
-      digital
-    </h3>
-
+    <h3 class="section-title"><i class="fas fa-graduation-cap icon"></i> Formación Académica en el mundo digital</h3>
     <ul class="education-list">
       <li class="education-item">
         <h4>Técnico en desarrollo de aplicaciones web</h4>
@@ -83,29 +77,22 @@
         <p>Grupo Atrium</p>
         <p>2024 - 2025</p>
       </li>
+    </ul>
 
-      <h3 class="section-title">
-        <i class="fas fa-graduation-cap icon"></i> Formación Académica en el
-        mundo deportivo
-      </h3>
-
+    <h3 class="section-title"><i class="fas fa-graduation-cap icon"></i> Formación Académica en el mundo deportivo</h3>
+    <ul class="education-list">
       <li class="education-item">
-        <h4>Máster en Gestion Deportiva y Marketing Deportivo</h4>
+        <h4>Máster en Gestión Deportiva y Marketing Deportivo</h4>
         <p>Universidad Internacional de Valencia</p>
         <p>2020 - 2021</p>
       </li>
       <li class="education-item">
-        <h4>
-          Máster en Rendimiento Deportivo, Preparación física y Readaptación
-          Deportiva
-        </h4>
+        <h4>Máster en Rendimiento Deportivo, Preparación física y Readaptación Deportiva</h4>
         <p>Instituto de la Salud</p>
         <p>2018 - 2019</p>
       </li>
       <li class="education-item">
-        <h4>
-          Máster en Formación del Profesorado para Secundaria, FP e Inglés
-        </h4>
+        <h4>Máster en Formación del Profesorado para Secundaria, FP e Inglés</h4>
         <p>Universidad Francisco de Vitoria</p>
         <p>2016 - 2017</p>
       </li>
@@ -116,9 +103,7 @@
       </li>
     </ul>
 
-    <h3 class="section-title">
-        <i class="fas fa-graduation-cap icon"></i> Idiomas
-      </h3>
+    <h3 class="section-title"><i class="fas fa-language icon"></i> Idiomas</h3>
     <ul class="education-list">
       <li class="education-item">
         <h4>Español</h4>
@@ -129,6 +114,22 @@
         <p>Intermedio (B2)</p>
         <p>2021</p>
       </li>
-      </ul>
+    </ul>
+
+    <h3 class="section-title"><i class="fas fa-graduation-cap icon"></i> Experiencia profesional en el ámbito tecnólogico</h3>
+    <ul class="education-list">
+      <li class="education-item">
+        <h4>ATOS / EVIDEN</h4>
+        <p>Programador Full Stack</p>
+        <p>Tecnologías usadas: Spring, Angular, Bootstrap y control de versiones con Git</p>
+        <p>Febrero 2025 - Julio 2025</p>
+      </li>
+      <li class="education-item">
+        <h4>Golgorio</h4>
+        <p>Programador</p>
+        <p>Tecnologias usadas: React</p>
+        <p>Julio 2025 - actualidad</p>
+      </li>
+    </ul>
   </div>
 </section>

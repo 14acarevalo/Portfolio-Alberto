@@ -1,31 +1,69 @@
+// Variables
 $neon-blue: #00f3ff;
 $neon-pink: #ff00cc;
+$bg-dark: #111;
+$text-color: white;
 
 .neon-toolbar {
-  background: radial-gradient(ellipse at center, #111 0%, #000 100%);
+  background: radial-gradient(ellipse at center, $bg-dark 0%, #000 100%);
   box-shadow: 0 0 20px $neon-blue, 0 0 60px $neon-blue;
   border-bottom: 2px solid $neon-blue;
   transition: all 0.3s ease-in-out;
   display: flex;
   align-items: center;
-  justify-content: flex-end; // 👈 Alinea logo + links a la derecha
-  flex-wrap: wrap; // Para responsive
+  padding: 0 1rem;
+  height: 60px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 
   .logo {
     font-family: 'Orbitron', sans-serif;
     font-size: 1.4rem;
     color: $neon-pink;
     text-shadow: 0 0 5px $neon-pink, 0 0 10px $neon-pink;
-    margin-right: auto; // 👈 Empuja el logo a la izquierda, en móvil se adapta
+    white-space: nowrap;
+    margin-right: 1rem;
+
+    @media (max-width: 480px) {
+      font-size: 1.2rem;
+    }
   }
 
   .spacer {
     flex: 1 1 auto;
   }
 
+  // Botón de menú (hamburguesa)
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: $neon-blue;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: white;
+      box-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+    }
+
+    &.close {
+      color: #ff3366;
+
+      &:hover {
+        color: #ff6699;
+      }
+    }
+  }
+
   .nav-links {
     display: flex;
-    gap: 10px;
+    gap: 1.5rem;
+    margin-left: auto;
 
     a {
       color: $neon-blue;
@@ -33,26 +71,75 @@ $neon-pink: #ff00cc;
       font-weight: 500;
       text-shadow: 0 0 2px $neon-blue, 0 0 5px $neon-blue;
       transition: all 0.3s ease;
+      white-space: nowrap;
+      padding: 0.5rem 0.75rem;
+      border-radius: 6px;
 
       &:hover {
         color: white;
         text-shadow: 0 0 10px white;
+        background: rgba(0, 243, 255, 0.1);
       }
     }
   }
 }
 
-// Responsive: En pantallas pequeñas, los enlaces se apilan
-@media (max-width: 600px) {
+// Responsive: Pantallas pequeñas (móvil)
+@media (max-width: 768px) {
   .neon-toolbar {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 1rem;
+    height: 60px;
+    align-items: center;
+  }
+
+  .menu-toggle {
+    display: block; // Mostrar solo en móvil
+  }
+
+  .nav-links {
+    display: none; // Oculto por defecto
     flex-direction: column;
-    align-items: flex-start;
-    padding: 8px;
+    background: rgba(0, 0, 0, 0.95);
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    padding: 1rem 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid $neon-blue;
+    z-index: 999;
+
+    &.open {
+      display: flex; // Mostrar solo si está abierto
+    }
+
+    a {
+      padding: 1rem 0;
+      font-size: 1.1rem;
+      justify-content: flex-start;
+
+      &:hover {
+        background: transparent;
+        color: white;
+        text-shadow: 0 0 10px white;
+      }
+    }
+  }
+
+  // Ajuste en pantallas muy pequeñas
+  @media (max-width: 480px) {
+    .neon-toolbar {
+      padding: 0 0.5rem;
+    }
 
     .nav-links {
-      flex-direction: column;
-      align-items: flex-start;
-      margin-top: 10px;
+      padding: 1rem 1.5rem;
+
+      a {
+        font-size: 1rem;
+      }
     }
   }
 }

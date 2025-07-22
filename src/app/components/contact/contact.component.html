@@ -1,41 +1,42 @@
-<section class="contact-section">
+<section class="contact">
   <div class="container">
     <h2 class="neon-title">Contáctame</h2>
     <p class="intro">
-      Conoceme un poco más y no dudes en contactarme para colaborar.
+      Conóceme un poco más y no dudes en contactarme para colaborar.
     </p>
 
     <!-- DATOS DE CONTACTO -->
     <div class="contact-details">
       <div class="contact-item">
-        <i class="fas fa-envelope"></i>
-        <p>Email: <a href="mailto:{{ contactInfo.email }}">{{ contactInfo.email }}</a></p>
+        <i class="fas fa-envelope icon"></i>
+        <p>Email: <a href="mailto:{{ contactInfo.email }}" target="_blank" rel="noopener">{{ contactInfo.email }}</a></p>
       </div>
 
       <div class="contact-item">
-        <i class="fas fa-phone"></i>
+        <i class="fas fa-phone icon"></i>
         <p>Teléfono: {{ contactInfo.phone }}</p>
       </div>
 
       <div class="contact-item">
-        <i class="fas fa-map-marker-alt"></i>
+        <i class="fas fa-map-marker-alt icon"></i>
         <p>Ubicación: {{ contactInfo.location }}</p>
       </div>
     </div>
 
     <!-- REDES SOCIALES -->
     <div class="social-links">
-      <a href="{{ contactInfo.github }}" target="_blank" class="social-link">
+      <a href="{{ contactInfo.github }}" target="_blank" rel="noopener" class="social-link">
         <i class="fab fa-github"></i> GitHub
       </a>
-      <a href="{{ contactInfo.linkedin }}" target="_blank" class="social-link">
+      <a href="{{ contactInfo.linkedin }}" target="_blank" rel="noopener" class="social-link">
         <i class="fab fa-linkedin"></i> LinkedIn
       </a>
-      <a href="https://www.instagram.com/14acarevalo/ " target="_blank" class="social-link">
+      <a href="https://www.instagram.com/14acarevalo/ " target="_blank" rel="noopener" class="social-link">
         <i class="fab fa-instagram"></i> Instagram
       </a>
     </div>
 
-    
+    <!-- FORMULARIO (opcional - lo dejamos preparado) -->
+    <!-- <app-contact-form></app-contact-form> -->
   </div>
 </section>
