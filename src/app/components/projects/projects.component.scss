@@ -1,3 +1,22 @@
+/* Botón Contacto en la sección final */
+.contact-link {
+  display: inline-block;
+  background: linear-gradient(90deg, #00f3ff 0%, #0077ff 100%);
+  color: #1a1a1a;
+  font-weight: bold;
+  padding: 0.75rem 2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  box-shadow: 0 2px 12px rgba(0,243,255,0.15);
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  margin-top: 0.5rem;
+}
+
+.contact-link:hover, .contact-link:focus {
+  background: linear-gradient(90deg, #0077ff 0%, #00f3ff 100%);
+  color: #fff;
+  box-shadow: 0 4px 24px rgba(0,243,255,0.25);
+}
 // Variables (reutilizables)
 $bg-dark: #0d0d0d;
 $card-bg: #1a1a1a;
@@ -162,4 +181,87 @@ $transition: all 0.3s ease;
     font-size: 0.9rem;
     padding: 4px 10px;
   }
+}
+
+/* Estilos para la sección deportiva: mantener la estética y reducir el tamaño de carteles/vídeos */
+.sports-media-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 18px;
+  margin-top: 1.25rem;
+  justify-items: center; /* Centrar las tarjetas pequeñas */
+}
+
+.sport-media-card {
+  background: $card-bg;
+  border-radius: $border-radius;
+  padding: 0.75rem;
+  width: 100%;
+  max-width: 320px; /* Limita el ancho para que no sean enormes */
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sport-poster {
+  /* Mostrar la imagen completa, sin recortes. Se escala proporcionalmente */
+  display: block;
+  width: 100%;
+  height: auto; /* Mantener la proporción original */
+  max-width: 320px; /* No ocupar más de la tarjeta */
+  border-radius: 8px;
+  margin: 0 auto;
+}
+
+.video-wrapper {
+  width: 100%;
+  max-width: 320px; /* Igual que la tarjeta */
+  padding-bottom: 56.25%; /* 16:9 */
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+@media (max-width: 480px) {
+  .sport-media-card {
+    max-width: 100%;
+    padding: 0.5rem;
+  }
+
+  .sport-poster {
+    max-height: 180px;
+  }
+
+  .video-wrapper {
+    max-width: 100%;
+  }
+
+  .contact-link {
+  display: inline-block;
+  background: linear-gradient(90deg, #00f3ff 0%, #0077ff 100%);
+  color: #1a1a1a;
+  font-weight: bold;
+  padding: 0.75rem 2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  box-shadow: 0 2px 12px rgba(0,243,255,0.15);
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  margin-top: 0.5rem;
+}
+.contact-link:hover, .contact-link:focus {
+  background: linear-gradient(90deg, #0077ff 0%, #00f3ff 100%);
+  color: #fff;
+  box-shadow: 0 4px 24px rgba(0,243,255,0.25);
+}
 }

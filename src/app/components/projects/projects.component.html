@@ -1,7 +1,7 @@
-<!-- projects.component.html -->
+<!-- src/app/components/projects/projects.component.html -->
 <section class="projects-section">
   <div class="container">
-    <h2 class="neon-title">Proyectos Destacados</h2>
+    <h2 class="neon-title">Proyectos Tecnologicos Destacados</h2>
     <p class="intro">
       Aquí tienes una selección de mis proyectos más recientes.
     </p>
@@ -27,6 +27,64 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <br><br><br><br>
+
+  <div class="container">
+    <h2 class="neon-title">Proyectos Deportivos Destacados</h2>
+    <p class="intro">
+      Aquí tienes una selección de algunos de mis proyectos deportivos que he gestionado, organizo y he organizado
+    </p>
+
+    <div class="projects-grid sports-media-grid">
+      <!-- Mostrar solo imagen o vídeo para cada entrada deportiva -->
+      <div class="sport-media-card" *ngFor="let media of sportMedia">
+        <ng-container *ngIf="media.youtubeEmbed; else showImage">
+          <div class="video-wrapper">
+            <iframe
+              [attr.src]="media.youtubeEmbed"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              loading="lazy">
+            </iframe>
+          </div>
+        </ng-container>
+
+        <ng-template #showImage>
+          <img
+            *ngIf="media.image"
+            [src]="media.image"
+            [alt]="media.alt || 'Cartel deportivo'"
+            class="sport-poster"
+            loading="lazy" />
+        </ng-template>
+
+      </div>
+
+    </div>
+<br>
+    <div class="cv-container" style="margin: 2rem auto; text-align: center; max-width: 600px;">
+          <h2 class="neon-title">Estudios deportivos publicados</h2>
+
+      <a href="assets/revista/Habilidad_motriz.pdf" target="_blank" class="cv-link">
+        <img src="assets/photos/portada.png" alt="Mi foto de perfil" class="cv-image"
+        style="max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,243,255,0.3); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+        </a>
+        <p style="color: #ccc; margin-top: 1rem; font-size: 0.9rem;">
+        Estudio personal sobre el futuro del deporte en el ámbito rural, la presencia de las nuevas tecnologías y la mejora de la habilidad motriz.
+        </p>
+</div>
+
+    <div class="container" style="margin-top: 3rem;">
+    <div style="background: #1a1a1a; border-radius: 12px; padding: 2rem; text-align: center;">
+      <h3 style="color: #00f3ff; margin-bottom: 1rem;">¿Quieres conocerme más?</h3>
+      <p style="color: #ccc; margin-bottom: 1.5rem;">
+Esto no queda aqui, si quieres ver de todo lo que soy capaz, te invito a que contactes conmigo.      </p>
+  <a href="/contact" class="contact-link">Contacto</a>
+    </div>
     </div>
   </div>
 </section>

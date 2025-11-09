@@ -12,7 +12,7 @@ export class ContactComponent {
   contactInfo = {
     email: 'alberto.campanero.arevalo@gmail.com',
     phone: '+34 676 125 559',
-    location: 'Toledo, España',
+    location: 'Toledo, Madrid, España',
     github: 'https://github.com/14acarevalo ',
     linkedin: 'https://www.linkedin.com/in/alberto-c-162930135/ '
   };
