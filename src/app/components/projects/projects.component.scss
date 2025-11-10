@@ -264,4 +264,77 @@ $transition: all 0.3s ease;
   color: #fff;
   box-shadow: 0 4px 24px rgba(0,243,255,0.25);
 }
+
+// ...existing code...
+
+/* Forzar 6 por fila en pantallas grandes, responsive abajo */
+.sports-media-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* 6 columnas iguales */
+  gap: 14px;
+  margin-top: 1rem;
+  justify-items: center;
+}
+
+/* El ancho máximo por tarjeta debe permitir 6 columnas dentro del contenedor */
+.sport-media-card {
+  background: $card-bg;
+  border-radius: $border-radius;
+  padding: 0.5rem;
+  width: 100%;
+  max-width: 160px; /* controla el ancho real de cada tarjeta */
+  box-shadow: 0 6px 14px rgba(0,0,0,0.22);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sport-poster {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 160px;
+  max-height: 140px;
+  object-fit: contain;
+  border-radius: 8px;
+  margin: 0 auto;
+}
+
+/* Vídeos con el mismo ancho que los carteles */
+.video-wrapper {
+  width: 100%;
+  max-width: 160px;
+  padding-bottom: 56.25%; /* 16:9 */
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Breakpoints: bajar columnas según tamaño */
+@media (max-width: 1200px) {
+  .sports-media-grid { grid-template-columns: repeat(4, 1fr); }
+  .sport-media-card, .sport-poster, .video-wrapper { max-width: 220px; }
+}
+
+@media (max-width: 768px) {
+  .sports-media-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .sport-media-card, .sport-poster, .video-wrapper { max-width: 320px; }
+}
+
+@media (max-width: 480px) {
+  .sports-media-grid { grid-template-columns: 1fr; }
+  .sport-media-card { max-width: 100%; }
+  .sport-poster, .video-wrapper { max-width: 100%; }
+}
+
 }

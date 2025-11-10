@@ -78,7 +78,41 @@
         </p>
 </div>
 
-    <div class="container" style="margin-top: 3rem;">
+
+
+    <!-- ...existing code... -->
+
+<div class="container">
+  <h2 class="neon-title">Colaboraciones</h2>
+  <p class="intro">Trabajos realizados en colaboración con Diputaciones, Ayuntamientos, Clubs y ONGs.</p>
+
+  <div class="projects-grid sports-media-grid">
+    <div class="sport-media-card" *ngFor="let col of collaborations">
+      <ng-container *ngIf="col.youtubeEmbed; else showCollabImage">
+        <div class="video-wrapper">
+          <iframe
+            [attr.src]="col.youtubeEmbed"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            loading="lazy">
+          </iframe>
+        </div>
+      </ng-container>
+
+      <ng-template #showCollabImage>
+        <img
+          *ngIf="col.image"
+          [src]="col.image"
+          [alt]="col.alt || 'Colaboración'"
+          class="sport-poster"
+          loading="lazy" />
+      </ng-template>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="margin-top: 3rem;">
     <div style="background: #1a1a1a; border-radius: 12px; padding: 2rem; text-align: center;">
       <h3 style="color: #00f3ff; margin-bottom: 1rem;">¿Quieres conocerme más?</h3>
       <p style="color: #ccc; margin-bottom: 1.5rem;">

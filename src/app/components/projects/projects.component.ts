@@ -78,4 +78,19 @@ export class ProjectsComponent {
   { image: 'assets/projects/roller.png', alt: 'Cartel roller' },
   { image: 'assets/projects/valencia.png', alt: 'Cartel valencia' },
 ];
+
+  collaborations: Array<{ image?: string; youtubeEmbed?: string; alt?: string; href?: string }> = [
+    // Ejemplos:
+    { image: 'assets/colaborations/caritas.png', alt: 'Colaboración A', href: 'https://ejemplo.com' },
+    { image: 'assets/colaborations/gimkana.png', alt: 'Colaboración B' },
+    { image: 'assets/colaborations/iker.png', alt: 'Colaboración B' },
+    { image: 'assets/colaborations/padel.png', alt: 'Colaboración B' },
+    { image: 'assets/colaborations/partido.png', alt: 'Colaboración B' },
+    { image: 'assets/colaborations/sanSilvestre.png', alt: 'Colaboración B' },
+    { image: 'assets/colaborations/futbol.png', alt: 'Colaboración B' },
+    { image: 'assets/colaborations/bici.png', alt: 'Colaboración B' },
+    { image: 'assets/colaborations/mujer.png', alt: 'Colaboración B' },
+    { image: 'assets/colaborations/patinaje.png', alt: 'Colaboración B' },
+
+  ];
 }
